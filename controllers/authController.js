@@ -81,3 +81,8 @@ module.exports.login_post = async (req, res) => {
         res.status(404).json({ errors });
     }
 }
+
+module.exports.logout_get = (req, res) => {
+    res.cookie('token', '', {maxAge: 1});
+    res.redirect('/')
+}
